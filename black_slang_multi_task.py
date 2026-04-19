@@ -129,15 +129,15 @@ class BlackTermsDetectPipeline:
 def main(params:FrontendParams):
     current_dir = os.path.dirname(os.path.abspath(__file__))
     base_model_path = os.path.join(str(current_dir)[:str(current_dir).find("dmj") + 3],
-                                   "models/deepSeek_R1_Distill_Qwen_1.5b")
+                                   "models_id")
     dataset_path = os.path.join(str(current_dir)[:str(current_dir).rfind("SF") + 2],
-                                "dataset/industry_slang_detection_dataset_10000.json")
+                                "dataset")
     datas = []
     with open(dataset_path, 'r', encoding='utf-8') as f:
         datas.extend(json.load(f))
 
     # 1.二分类的模型参数地址
-    base_two_path = "/home/wzl/workplace/dmj/projects/SF/detect_label"
+    base_two_path = "..."
     output_dir = os.path.join(base_two_path, "model_dict")
 
     last_model_2_dict_path = os.path.join(output_dir, "last_model_dict/model_dict.bin")
@@ -145,7 +145,7 @@ def main(params:FrontendParams):
     last_model_2_lora_path = os.path.join(output_dir, "last_model_lora")
 
     # 2.多分类的模型参数地址
-    base_d_path = "/home/wzl/workplace/dmj/projects/SF/detect_category"
+    base_d_path = "..."
     output_dir = os.path.join(base_d_path, "model_dict")
 
     last_model_d_dict_path = os.path.join(output_dir, "last_model_dict/model_dict.bin")
